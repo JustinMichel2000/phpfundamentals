@@ -129,6 +129,12 @@ Are you a robot, like me ? Can I hug you ?"
 <?php
 } ?>
 
+<?php
+echo "<br>"
+?>
+<?php
+echo "<br>"
+?>
 
 
 <!-- 4. Display a different greeting according to the user's age and gender.
@@ -144,16 +150,249 @@ Do the same for all the other age ranges.
 
 Tip: You can nest conditional structures inside others. -->
 
+
 <form method="get" action="">
-	<label for="age">...</label>
-	<input type="" name="age">
-	<input type="submit" name="submit" value="Greet me now">
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age">
+    <br><br>
+    <label>Man or Woman:</label>
+    <input type="radio" name="gender" value="Man">Man
+    <input type="radio" name="gender" value="Woman">Woman
+    <br><br>
+    <input type="submit" name="submit" value="Greet me now">
 </form>
 
 
+<?php
+if (isset($_GET['submit'])) {
+    $age = $_GET['age'];
+    $gender = $_GET['gender'];
+
+    if ($age >= 12 && $age <= 18) {
+        if ($gender === 'Woman') {
+            echo 'Hello Miss Teen!';
+        } else {
+            echo 'Hello mister Teen!';
+        }
+    } elseif ($age > 18) {
+        if ($gender === 'Woman') {
+            echo 'Hello Madam!';
+        } else {
+            echo 'Hello Sir!';
+        }
+    } else {
+        echo 'Hello, Youngster!';
+    }
+}
+?>
+
+<?php
+echo "<br>"
+?>
+<?php
+echo "<br>"
+?>
+
+
+<!-- 5. Display a different greeting according to the user's age, gender and mothertongue.
+Improve the previous form to add yet another question: "Do you speak English ? ". 
+Use an input of type radio to capture the data. Possible answers: "yes" or "no".
+
+Then modify your form processing script to implement this :
+
+If age is below 12 and the user replies "yes", display :
+ "Hello boy!" or "Hello Girl!" according to the gender indicated.
+If the answer is "no", display "Aloha boy" or "Aloha Girl"
+Adapt all the other answers accordingly, using "Aloha" instead of "Hello". -->
 
 
 
+<form method="get" action="">
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age">
+    <br><br>
+    <label>Man or Woman:</label>
+    <input type="radio" name="gender" value="Man">Man
+    <input type="radio" name="gender" value="Woman">Woman
+    <br><br>
+    <label>Do you speak English?</label>
+    <input type="radio" name="english" value="yes">Yes
+    <input type="radio" name="english" value="no">No
+    <br><br>
+    <input type="submit" name="submit" value="Greet me now">
+</form>
+
+<?php
+if (isset($_GET['submit'])) {
+    $age = $_GET['age'];
+    $gender = $_GET['gender'];
+    $englishSpeaking = $_GET['english'];
+
+    if ($age < 12) {
+        if ($englishSpeaking === 'yes') {
+            if ($gender === 'Woman') {
+                echo 'Aloha Girl!';
+            } else {
+                echo 'Aloha boy!';
+            }
+        } else {
+            if ($gender === 'Woman') {
+                echo 'Aloha Girl!';
+            } else {
+                echo 'Aloha boy!';
+            }
+        }
+    } else {
+        if ($englishSpeaking === 'yes') {
+            if ($age >= 12 && $age <= 18) {
+                if ($gender === 'Woman') {
+                    echo 'Hello Miss Teen!';
+                } else {
+                    echo 'Hello mister Teen!';
+                }
+            } else {
+                if ($gender === 'Woman') {
+                    echo 'Hello Madam!';
+                } else {
+                    echo 'Hello Sir!';
+                }
+            }
+        } else {
+            if ($age >= 12 && $age <= 18) {
+                if ($gender === 'Woman') {
+                    echo 'Aloha Miss Teen!';
+                } else {
+                    echo 'Aloha mister Teen!';
+                }
+            } else {
+                if ($gender === 'Woman') {
+                    echo 'Aloha Madam!';
+                } else {
+                    echo 'Aloha Sir!';
+                }
+            }
+        }
+    }
+}
+?>
+
+<?php
+echo "<br>"
+?>
+<?php
+echo "<br>"
+?>
+
+
+<!-- 6. The Girl Soccer team
+You want to create a soccer team for girls between 21 and 40 years old.
+
+Create a form asking for the age, gender and name of the person. 
+Use the $age and $gender variables in an if/else to display 
+a "welcome to the team !" or "Sorry you don't fit the criteria" message. -->
+
+
+    <form method="post" action="">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+        <br><br>
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" required>
+        <br><br>
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="female" required>Female
+        <input type="radio" name="gender" value="male">Male
+        <br><br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+
+
+
+<?php
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $age = $_POST['age'];
+    $gender = $_POST['gender'];
+
+    if ($gender === 'female' && $age >= 21 && $age <= 40) {
+        echo "Welcome to the team, $name!";
+    } else {
+        echo "Sorry, you don't fit the criteria.";
+    }
+}
+?>
+
+
+<?php
+echo "<br>"
+?>
+<?php
+echo "<br>"
+?>
+
+
+<!-- 7. Achieve the same, without the ELSE.
+A key aspect of coding conditions is to keep them as simple as possible. 
+Improve the previous exercise 
+by using only an if statement (without the else), 
+and a default value that changes only if the condition is true. -->
+
+
+
+<form method="post" action="">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+        <br><br>
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" required>
+        <br><br>
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="female" required>Female
+        <input type="radio" name="gender" value="male">Male
+        <br><br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+
+
+
+    <?php
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $age = $_POST['age'];
+    $gender = $_POST['gender'];
+
+    $message = "Sorry, you don't fit the criteria.";
+
+    if ($gender === 'female' && $age >= 21 && $age <= 40) {
+        $message = "Welcome to the team, $name!";
+    }
+
+    echo $message;
+}
+?>
+
+
+
+
+<?php
+echo "<br>"
+?>
+<?php
+echo "<br>"
+?>
+
+
+<!-- 8. "School sucks!" Exercise
+Start a new form that would allow a (nasty) teacher to grade a student.
+
+It would display a different message according to the number annotated :
+
+note below 4 : "This work is really bad. What a dumb kid! "
+note between 5 and 9 : "This is not sufficient. More studying is required."
+note equals 10 : "barely enough!"
+note is 11, 12, 13 or 14 : "Not bad!"
+note is 15, 16, 17 or 18 : "Bravo, bravissimo!"
+note is 19 or 20 : "Too good to be true : confront the cheater!" -->
 
 
 

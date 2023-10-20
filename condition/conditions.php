@@ -3,7 +3,7 @@
 
 <!-- // 1.1 Clean your room Exercise  -->
 
-<?php
+<!-- <?php
 
 $room_is_filthy = false;
 
@@ -16,18 +16,18 @@ if( $room_is_filthy) {
 	echo "<br>Nothing to do, room is neat.";
 }
 
+?>
 
+<?php
 echo"<br>";
+?> -->
 
-
-// <!-- // 1.2 Clean your room Exercise, improved -->
-
-
-
+<!-- 
+1.2 Clean your room Exercise, improved -->
+<!-- <?php
 
 $possible_states = ["Health Hazard", "Filthy", "Dirty", "Clean", "Immaculate"];
 
-// When testing, change the index value to navigate to the possible array values
 
 $room_filthiness = $possible_states[2]; 
 
@@ -44,32 +44,39 @@ if($room_filthiness == $possible_states[0]) {
 	echo "<br>Nothing to do, room is immaculate.";
 }
 
+?> -->
+
+<?php
 
 echo"<br>";
 echo"<br>";
 
-// 2. Display a different greeting message depending on the time of the day.
-// You know what's worse than a stupid robot? A stupid impolite robot. Let's fix that.
+?>
 
-// Write a script that implements these specifications :
+<!-- // 2. Display a different greeting message depending on the time of the day.
+// You know what's worse than a stupid robot? A stupid impolite robot. Let's fix that. -->
+
+<!-- // Write a script that implements these specifications :
 
 // If the time is between 05h00 and 09h00, display "Good morning !".
 // If the time is between 09h01 and 12h00, display "Good day !".
 // If the time is between 12h01 and 16h00, display "Good afternoon !".
 // If the time is between 16h01 and 21h00, display "Good evening !".
 // If the time is between 21h01 and 04h59, display "Good night !".
-// Tip: you can combine multiple conditions (using AND / OR).
+// Tip: you can combine multiple conditions (using AND / OR). -->
 
 
-// 2. "Different greetings according to time" Exercise
+<!-- // 2. "Different greetings according to time" Exercise -->
+<!-- <?php
+
 date_default_timezone_set("Europe/Brussels");
 $now = date('d-m-y h:i:s');
-echo $now; // How to get the current time in PHP ? Google is your friend ;-)
+echo $now; 
 
 echo"<br>";
 echo"<br>";
 
-// Test the value of $now and display the right message according to the specifications.
+
 if ("5:00:00" <= $now AND $now <= "9:00:00") {
     echo "Good morning !";
 } else if ("9:01:00" <= $now AND $now <= "12:00:00") {
@@ -86,7 +93,7 @@ if ("5:00:00" <= $now AND $now <= "9:00:00") {
 echo "<br>";
 echo "<br>";
 
-?>
+?> -->
 
 <!-- 
 // 3. Display a different greeting according to the user's age.
@@ -106,7 +113,7 @@ echo "<br>";
 Are you a robot, like me ? Can I hug you ?"
 // Have both the form and the processing script in the same file. Use the GET method. -->
 
-
+<!-- 
 <form method="get" action="">
 	<label for="age">Enter your age :</label>
 	<input type="" name="age">
@@ -134,7 +141,7 @@ echo "<br>"
 ?>
 <?php
 echo "<br>"
-?>
+?> -->
 
 
 <!-- 4. Display a different greeting according to the user's age and gender.
@@ -150,7 +157,7 @@ Do the same for all the other age ranges.
 
 Tip: You can nest conditional structures inside others. -->
 
-
+<!-- 
 <form method="get" action="">
     <label for="age">Age:</label>
     <input type="number" name="age" id="age">
@@ -191,7 +198,7 @@ echo "<br>"
 ?>
 <?php
 echo "<br>"
-?>
+?> -->
 
 
 <!-- 5. Display a different greeting according to the user's age, gender and mothertongue.
@@ -206,7 +213,7 @@ If the answer is "no", display "Aloha boy" or "Aloha Girl"
 Adapt all the other answers accordingly, using "Aloha" instead of "Hello". -->
 
 
-
+<!-- 
 <form method="get" action="">
     <label for="age">Age:</label>
     <input type="number" name="age" id="age">
@@ -276,12 +283,13 @@ if (isset($_GET['submit'])) {
 }
 ?>
 
+
 <?php
 echo "<br>"
 ?>
 <?php
 echo "<br>"
-?>
+?> -->
 
 
 <!-- 6. The Girl Soccer team
@@ -291,7 +299,7 @@ Create a form asking for the age, gender and name of the person.
 Use the $age and $gender variables in an if/else to display 
 a "welcome to the team !" or "Sorry you don't fit the criteria" message. -->
 
-
+<!-- 
     <form method="post" action="">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required>
@@ -328,7 +336,7 @@ echo "<br>"
 ?>
 <?php
 echo "<br>"
-?>
+?> -->
 
 
 <!-- 7. Achieve the same, without the ELSE.
@@ -337,7 +345,7 @@ Improve the previous exercise
 by using only an if statement (without the else), 
 and a default value that changes only if the condition is true. -->
 
-
+<!-- 
 
 <form method="post" action="">
         <label for="name">Name:</label>
@@ -356,10 +364,10 @@ and a default value that changes only if the condition is true. -->
 
 
     <?php
-if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $age = $_POST['age'];
-    $gender = $_POST['gender'];
+if (isset($_POST["submit"])) {
+    $name = $_POST["name"];
+    $age = $_POST["age"];
+    $gender = $_POST["gender"];
 
     $message = "Sorry, you don't fit the criteria.";
 
@@ -379,7 +387,7 @@ echo "<br>"
 ?>
 <?php
 echo "<br>"
-?>
+?> -->
 
 
 <!-- 8. "School sucks!" Exercise
@@ -393,6 +401,38 @@ note equals 10 : "barely enough!"
 note is 11, 12, 13 or 14 : "Not bad!"
 note is 15, 16, 17 or 18 : "Bravo, bravissimo!"
 note is 19 or 20 : "Too good to be true : confront the cheater!" -->
+
+
+<!-- <form method="post" action="">
+        <label for="grade">Enter the student's grade:</label><br>
+        <input type="number" id="grade" name="grade" min="0" max="20"><br><br>
+        <input type="submit" value="Grade">
+    </form>
+
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $grade = $_POST['grade'];
+        if ($grade < 4) {
+            echo "This work is really bad. What a dumb kid!";
+        } elseif ($grade >= 5 && $grade <= 9) {
+            echo "This is not sufficient. More studying is required.";
+        } elseif ($grade == 10) {
+            echo "Barely enough!";
+        } elseif ($grade >= 11 && $grade <= 14) {
+            echo "Not bad!";
+        } elseif ($grade >= 15 && $grade <= 18) {
+            echo "Bravo, bravissimo!";
+        } elseif ($grade == 19 || $grade == 20) {
+            echo "Too good to be true: confront the cheater!";
+        } else {
+            echo "Please enter a valid grade.";
+        }
+    }
+    ?> -->
+
+
+
 
 
 
